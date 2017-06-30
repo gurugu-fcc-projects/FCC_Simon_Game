@@ -8,6 +8,7 @@ export const testSetCanvas = () => {
 export const clearDisplay = () => {
   const canvas = document.querySelector('canvas');
   const cx = canvas.getContext('2d');
+
   cx.fillStyle = 'rgb(52,166,251)';
   cx.fillRect(0, 0, canvas.width, canvas.height);
 };
@@ -23,6 +24,45 @@ export const drawCircle = (coordinates) => {
   cx.stroke();
 };
 
+export const Circle = {
+  init: (x = 100, y = 0, xShift = 10, speed = 1, size = 10) => {
+    this.canvas = document.querySelector('canvas');
+    this.cx = this.canvas.getContext('2d');
+    this.isShiftingLeft = Math.random() > 0.5 ? true : false;
+    this.x = x;
+    this.y = y;
+    this.xShift = xShift;
+    this.currentXShift = 0;
+    this.speed = speed;
+    this.size = size;
+  },
+  draw: () => {
+    // restart circle animation
+    if (this.y > this.canvas.height + 10) {
+      this.y = -40;
+    }
+
+    if (this.currentXShift === this.xShift) {
+      this.isShiftingLeft = true;
+    }
+    if (this.currentXShift === this.xShift * -1) {
+      this.isShiftingLeft = false;
+    }
+
+    if (this.isShiftingLeft) {
+      this.currentXShift -= 1;
+    } else {
+      this.currentXShift += 1;
+    }
+
+    this.y += this.speed;
+
+    this.cx.strokeColor = 'red';
+    this.cx.beginPath();
+    this.cx.arc(this.x + this.currentXShift, this.y, this.size, 0, 7);
+    this.cx.stroke();
+  }
+};
 /* HTML animation */
 
 export const moveTestBall = () => {

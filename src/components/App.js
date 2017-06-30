@@ -18,9 +18,11 @@ class App extends Component {
     testSetCanvas();
     setInterval(() => {
       const canvas = document.querySelector('canvas');
+
       if (yOffset > canvas.height + 20) {
         yOffset = -40;
       }
+      
       yOffset += 1;
       clearDisplay();
       drawCircle({x: 200, y: yOffset});
