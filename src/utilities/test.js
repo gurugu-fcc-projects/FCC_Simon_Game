@@ -1,31 +1,28 @@
-export const canvasTest = (parent) => {
-  this.canvas = document.createElement('canvas');
-  this.canvas.width = Math.min(640, window.innerWidth);
-  this.canvas.height = Math.min(480, window.innerHeight);
-  parent.appendChild(this.canvas);
-  this.cx = this.canvas.getContext('2d');
+export const testSetCanvas = () => {
+  const canvas = document.querySelector('canvas');
 
-  this.animationTime = 0;
-
-  this.drawFrame(0);
+  canvas.width = Math.min(640, window.innerWidth);
+  canvas.height = Math.min(480, window.innerHeight);
 };
 
-canvasTest.prototype.clear = function() {
-  this.canvas.parentNode.removeChild(this.canvas);
+export const clearDisplay = () => {
+  const canvas = document.querySelector('canvas');
+  const cx = canvas.getContext('2d');
+  cx.fillStyle = 'rgb(52,166,251)';
+  cx.fillRect(0, 0, canvas.width, canvas.height);
 };
 
-canvasTest.prototype.drawFrame = function(step) {
-  this.animationTime += step;
+export const drawCircle = (coordinates) => {
+  const canvas = document.querySelector('canvas');
+  const cx = canvas.getContext('2d');
+  const { x, y } = coordinates;
 
-  this.clearDisplay();
-  this.drawBackground();
-  this.drawActors();
-}
+  cx.strokeColor = 'red';
+  cx.beginPath();
+  cx.arc(x, y, 20, 0, 7);
+  cx.stroke();
+};
 
-canvasTest.prototype.clearDisplay = function() {
-  this.cx.fillStyle = 'rgb(52,166,251)';
-  this.cx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-}
 /* HTML animation */
 
 export const moveTestBall = () => {

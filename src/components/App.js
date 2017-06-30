@@ -2,14 +2,29 @@ import React, { Component } from 'react';
 
 import logo from '../logo.svg';
 import '../styles/App.css';
-import { moveTestBall, canvasTest } from '../utilities/test';
+import {
+  moveTestBall,
+  testSetCanvas,
+  clearDisplay,
+  drawCircle,
+  animateCircle,
+} from '../utilities/test';
 
 class App extends Component {
   componentDidMount() {
-    const app = document.querySelector('.App');
+    let yOffset = 0;
 
     moveTestBall();
-    canvasTest(app);
+    testSetCanvas();
+    setInterval(() => {
+      const canvas = document.querySelector('canvas');
+      if (yOffset > canvas.height + 20) {
+        yOffset = -40;
+      }
+      yOffset += 1;
+      clearDisplay();
+      drawCircle({x: 200, y: yOffset});
+    }, 50);
   }
 
   render() {
@@ -23,6 +38,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <canvas></canvas>
       </div>
     );
   }
