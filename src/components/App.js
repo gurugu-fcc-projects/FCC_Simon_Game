@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 
 import logo from '../logo.svg';
 import '../styles/App.css';
-import { moveTestBall } from '../utilities/test';
+import { moveTestBall, canvasTest } from '../utilities/test';
 
 class App extends Component {
   componentDidMount() {
+    const app = document.querySelector('.App');
+
     moveTestBall();
+    canvasTest(app);
   }
 
   render() {
