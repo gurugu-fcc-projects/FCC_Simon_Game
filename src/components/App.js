@@ -8,24 +8,19 @@ import {
   clearDisplay,
   drawCircle,
   animateCircle,
+  Circle,
 } from '../utilities/test';
 
 class App extends Component {
   componentDidMount() {
-    let yOffset = 0;
+    const ball1 = Object.create(Circle);
+    ball1.init();
 
-    moveTestBall();
     testSetCanvas();
-    setInterval(() => {
-      const canvas = document.querySelector('canvas');
 
-      if (yOffset > canvas.height + 20) {
-        yOffset = -40;
-      }
-      
-      yOffset += 1;
+    setInterval(() => {
       clearDisplay();
-      drawCircle({x: 200, y: yOffset});
+      ball1.draw();
     }, 50);
   }
 

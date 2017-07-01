@@ -25,6 +25,7 @@ export const drawCircle = (coordinates) => {
 };
 
 export const Circle = {
+  // initialize new cirlce
   init: (x = 100, y = 0, xShift = 10, speed = 1, size = 10) => {
     this.canvas = document.querySelector('canvas');
     this.cx = this.canvas.getContext('2d');
@@ -36,27 +37,29 @@ export const Circle = {
     this.speed = speed;
     this.size = size;
   },
+  // draw circle
   draw: () => {
-    // restart circle animation
+    // restart circle animation when it reaches the end
     if (this.y > this.canvas.height + 10) {
       this.y = -40;
     }
-
+    // move circle left if reached far right
     if (this.currentXShift === this.xShift) {
       this.isShiftingLeft = true;
     }
+    // move circle right if reached far left
     if (this.currentXShift === this.xShift * -1) {
       this.isShiftingLeft = false;
     }
-
+    // move circle left or right
     if (this.isShiftingLeft) {
       this.currentXShift -= 1;
     } else {
       this.currentXShift += 1;
     }
-
+    // increase X coordinate by the set pixels
     this.y += this.speed;
-
+    // draw circle at new coordinates
     this.cx.strokeColor = 'red';
     this.cx.beginPath();
     this.cx.arc(this.x + this.currentXShift, this.y, this.size, 0, 7);
