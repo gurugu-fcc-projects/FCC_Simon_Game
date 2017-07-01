@@ -24,9 +24,9 @@ export const drawCircle = (coordinates) => {
   cx.stroke();
 };
 
-export const Circle = {
+export const AnimatedObject = {
   // initialize new cirlce
-  init: (x = 100, y = 0, xShift = 10, speed = 1, size = 10) => {
+  init: function({x = 100, y = 0, xShift = 10, speed = 1, size = 10} = {}) {
     this.canvas = document.querySelector('canvas');
     this.cx = this.canvas.getContext('2d');
     this.isShiftingLeft = Math.random() > 0.5 ? true : false;
@@ -38,7 +38,7 @@ export const Circle = {
     this.size = size;
   },
   // draw circle
-  draw: () => {
+  draw: function() {
     // restart circle animation when it reaches the end
     if (this.y > this.canvas.height + 10) {
       this.y = -40;
@@ -66,6 +66,7 @@ export const Circle = {
     this.cx.stroke();
   }
 };
+
 /* HTML animation */
 
 export const moveTestBall = () => {
