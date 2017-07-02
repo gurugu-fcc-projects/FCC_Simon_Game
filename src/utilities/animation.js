@@ -23,10 +23,6 @@ const drawBall = (options = {x: 100, y: 0, size: 10}) => {
   cx.stroke();
 };
 
-const randomNumber = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
 export const AnimatedObject = {
   // initialize new cirlce
   init: function({x = 100, y = 0, xShift = 10, speed = 1, size = 7} = {}) {
@@ -65,10 +61,15 @@ export const AnimatedObject = {
   }
 };
 
+const randomNumber = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
 export const setBubbles = (number) => {
   let bubbles = [];
   let i;
 
+  // create a set number of bubbles with random characteristics
   for (i = 1; i <= number; i++) {
     bubbles[i] = Object.create(AnimatedObject);
     bubbles[i].init({
@@ -84,8 +85,10 @@ export const setBubbles = (number) => {
 };
 
 export const drawBubbles = (bubbles) => {
+  // draw all bubbles
   bubbles.forEach(bubble => bubble.draw());
 };
+
 /*==================================
 * HTML animation
 ===================================*/
