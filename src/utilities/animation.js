@@ -1,8 +1,6 @@
 export const testSetCanvas = () => {
   const canvas = document.querySelector('canvas');
 
-  // canvas.width = Math.min(640, window.innerWidth);
-  // canvas.height = Math.min(480, window.innerHeight);
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 };
@@ -15,7 +13,7 @@ export const clearDisplay = () => {
   cx.fillRect(0, 0, canvas.width, canvas.height);
 };
 
-export const drawCircle = (options) => {
+const drawBall = (options = {x: 100, y: 0, size: 10}) => {
   const canvas = document.querySelector('canvas');
   const cx = canvas.getContext('2d');
   const { x, y, size } = options;
@@ -25,11 +23,13 @@ export const drawCircle = (options) => {
   cx.stroke();
 };
 
+const randomNumber = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
 export const AnimatedObject = {
   // initialize new cirlce
-  init: function({x = 100, y = 0, xShift = 10, speed = 1, size = 10} = {}) {
-    // this.canvas = document.querySelector('canvas');
-    // this.cx = this.canvas.getContext('2d');
+  init: function({x = 100, y = 0, xShift = 10, speed = 1, size = 7} = {}) {
     this.isShiftingLeft = Math.random() > 0.5 ? true : false;
     this.x = x;
     this.y = y;
@@ -61,11 +61,34 @@ export const AnimatedObject = {
     // increase X coordinate by the set pixels
     this.y += this.speed;
     // draw circle at new coordinates
-    drawCircle({x: this.x + this.currentXShift, y: this.y, size: this.size});
+    drawBall({x: this.x + this.currentXShift, y: this.y, size: this.size});
   }
 };
 
-/* HTML animation */
+export const setBalls = (number) => {
+  let balls = [];
+  let i;
+
+  for (i = 1; i <= number; i++) {
+    balls[i] = Object.create(AnimatedObject);
+    balls[i].init({
+      x: randomNumber(0, window.innerWidth),
+      y: randomNumber(0, window.innerHeight),
+      xShift: randomNumber(0, 15),
+      speed: randomNumber(1, 4),
+      size: randomNumber(1, 7)
+    });
+  }
+
+  return balls;
+};
+
+export const drawBalls = (balls) => {
+  balls.forEach(ball => ball.draw());
+};
+/*==================================
+* HTML animation
+===================================*/
 
 export const moveTestBall = () => {
   const testBall = document.querySelector('.test-ball');
