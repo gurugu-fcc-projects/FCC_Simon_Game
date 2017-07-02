@@ -6,7 +6,7 @@ describe('App Component', () => {
   it('renders without crashing with SHALLOW', () => {
     shallow(<App />);
   });
-  it('renders without crashing with MOUNT', () => {
+  it.skip('renders without crashing with MOUNT', () => {
     mount(<App />);
   });
 });

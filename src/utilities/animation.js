@@ -1,8 +1,10 @@
 export const testSetCanvas = () => {
   const canvas = document.querySelector('canvas');
 
-  canvas.width = Math.min(640, window.innerWidth);
-  canvas.height = Math.min(480, window.innerHeight);
+  // canvas.width = Math.min(640, window.innerWidth);
+  // canvas.height = Math.min(480, window.innerHeight);
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 };
 
 export const clearDisplay = () => {
@@ -13,22 +15,21 @@ export const clearDisplay = () => {
   cx.fillRect(0, 0, canvas.width, canvas.height);
 };
 
-export const drawCircle = (coordinates) => {
+export const drawCircle = (options) => {
   const canvas = document.querySelector('canvas');
   const cx = canvas.getContext('2d');
-  const { x, y } = coordinates;
+  const { x, y, size } = options;
 
-  cx.strokeColor = 'red';
   cx.beginPath();
-  cx.arc(x, y, 20, 0, 7);
+  cx.arc(x, y, size, 0, 7);
   cx.stroke();
 };
 
 export const AnimatedObject = {
   // initialize new cirlce
   init: function({x = 100, y = 0, xShift = 10, speed = 1, size = 10} = {}) {
-    this.canvas = document.querySelector('canvas');
-    this.cx = this.canvas.getContext('2d');
+    // this.canvas = document.querySelector('canvas');
+    // this.cx = this.canvas.getContext('2d');
     this.isShiftingLeft = Math.random() > 0.5 ? true : false;
     this.x = x;
     this.y = y;
@@ -40,7 +41,7 @@ export const AnimatedObject = {
   // draw circle
   draw: function() {
     // restart circle animation when it reaches the end
-    if (this.y > this.canvas.height + 10) {
+    if (this.y > window.innerHeight + 10) {
       this.y = -40;
     }
     // move circle left if reached far right
@@ -60,10 +61,7 @@ export const AnimatedObject = {
     // increase X coordinate by the set pixels
     this.y += this.speed;
     // draw circle at new coordinates
-    this.cx.strokeColor = 'red';
-    this.cx.beginPath();
-    this.cx.arc(this.x + this.currentXShift, this.y, this.size, 0, 7);
-    this.cx.stroke();
+    drawCircle({x: this.x + this.currentXShift, y: this.y, size: this.size});
   }
 };
 
