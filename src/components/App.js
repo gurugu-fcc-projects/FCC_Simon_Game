@@ -5,19 +5,19 @@ import '../styles/App.css';
 import {
   testSetCanvas,
   clearDisplay,
-  setBalls,
-  drawBalls,
+  setBubbles,
+  drawBubbles,
 } from '../utilities/animation';
 
 class App extends Component {
   componentDidMount() {
-    const balls = setBalls(200);
+    const bubbles = setBubbles(200);
 
     testSetCanvas();
 
     setInterval(() => {
       clearDisplay();
-      drawBalls(balls);
+      drawBubbles(bubbles);
     }, 50);
   }
 

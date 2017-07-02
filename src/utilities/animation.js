@@ -65,13 +65,13 @@ export const AnimatedObject = {
   }
 };
 
-export const setBalls = (number) => {
-  let balls = [];
+export const setBubbles = (number) => {
+  let bubbles = [];
   let i;
 
   for (i = 1; i <= number; i++) {
-    balls[i] = Object.create(AnimatedObject);
-    balls[i].init({
+    bubbles[i] = Object.create(AnimatedObject);
+    bubbles[i].init({
       x: randomNumber(0, window.innerWidth),
       y: randomNumber(0, window.innerHeight),
       xShift: randomNumber(0, 15),
@@ -80,11 +80,11 @@ export const setBalls = (number) => {
     });
   }
 
-  return balls;
+  return bubbles;
 };
 
-export const drawBalls = (balls) => {
-  balls.forEach(ball => ball.draw());
+export const drawBubbles = (bubbles) => {
+  bubbles.forEach(bubble => bubble.draw());
 };
 /*==================================
 * HTML animation
