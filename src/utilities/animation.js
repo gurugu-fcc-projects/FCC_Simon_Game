@@ -4,8 +4,19 @@
 
 export const addColoredBubbles = () => {
   const redBubble = document.createElement('div');
+  const blueBubble = document.createElement('div');
+  const greenBubble = document.createElement('div');
+  const yellowBubble = document.createElement('div');
+
   redBubble.classList.add('bubble-red');
+  blueBubble.classList.add('bubble-blue');
+  greenBubble.classList.add('bubble-green');
+  yellowBubble.classList.add('bubble-yellow');
+
   document.querySelector('.App').appendChild(redBubble);
+  document.querySelector('.App').appendChild(blueBubble);
+  document.querySelector('.App').appendChild(greenBubble);
+  document.querySelector('.App').appendChild(yellowBubble);
 };
 
 /*==================================
