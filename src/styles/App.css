@@ -15,59 +15,59 @@
 }
 
 .bubble-red {
-  top: 100px;
-  left: 100px;
+  top: 30%;
+  left: 15%;
   background-color: red;
   animation: floating-red 2s linear infinite alternate;
 }
 .bubble-blue {
-  top: 300px;
-  left: 150px;
+  top: 66%;
+  left: 21%;
   background-color: blue;
   animation: floating-blue 2s linear infinite alternate;
 }
 .bubble-green {
-  top: 180px;
-  left: 450px;
+  top: 27%;
+  left: 68%;
   background-color: green;
   animation: floating-green 2s linear infinite alternate;
 }
 .bubble-yellow {
-  top: 380px;
-  left: 650px;
+  top: 55%;
+  left: 55%;
   background-color: yellow;
   animation: floating-yellow 2s linear infinite alternate;
 }
 
 @keyframes floating-red {
   0 {
-    left: 110px
+    left: 16%;
   }
   100% {
-    left: 90px
+    left: 13%;
   }
 }
 @keyframes floating-blue {
   0 {
-    left: 140px
+    left: 22%;
   }
   100% {
-    left: 160px
+    left: 20%;
   }
 }
 @keyframes floating-green {
   0 {
-    left: 440px
+    left: 67%;
   }
   100% {
-    left: 460px
+    left: 69%;
   }
 }
 @keyframes floating-yellow {
   0 {
-    left: 660px
+    left: 56%;
   }
   100% {
-    left: 640px
+    left: 54%;
   }
 }
