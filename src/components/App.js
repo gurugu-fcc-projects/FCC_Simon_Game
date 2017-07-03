@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import logo from '../logo.svg';
 import '../styles/App.css';
 import {
   testSetCanvas,
   clearDisplay,
   setBubbles,
   drawBubbles,
+  addColoredBubbles,
 } from '../utilities/animation';
 
 class App extends Component {
@@ -14,6 +14,7 @@ class App extends Component {
     const bubbles = setBubbles(200);
 
     testSetCanvas();
+    addColoredBubbles();
 
     setInterval(() => {
       clearDisplay();

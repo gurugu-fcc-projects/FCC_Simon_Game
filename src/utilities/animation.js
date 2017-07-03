@@ -1,3 +1,17 @@
+/*==================================
+ Colored bubbles
+===================================*/
+
+export const addColoredBubbles = () => {
+  const redBubble = document.createElement('div');
+  redBubble.classList.add('bubble-red');
+  document.querySelector('.App').appendChild(redBubble);
+};
+
+/*==================================
+ Bubble CANVAS animation
+===================================*/
+
 export const testSetCanvas = () => {
   const canvas = document.querySelector('canvas');
 
@@ -9,7 +23,8 @@ export const clearDisplay = () => {
   const canvas = document.querySelector('canvas');
   const cx = canvas.getContext('2d');
 
-  cx.fillStyle = 'rgb(52,166,251)';
+  // cx.fillStyle = '#0D3446';
+  cx.fillStyle = '#2866AB';
   cx.fillRect(0, 0, canvas.width, canvas.height);
 };
 
@@ -18,6 +33,8 @@ const drawBall = (options = {x: 100, y: 0, size: 10}) => {
   const cx = canvas.getContext('2d');
   const { x, y, size } = options;
 
+  // cx.strokeStyle = '#176D81';
+  cx.strokeStyle = '#073059';
   cx.beginPath();
   cx.arc(x, y, size, 0, 7);
   cx.stroke();
@@ -90,7 +107,7 @@ export const drawBubbles = (bubbles) => {
 };
 
 /*==================================
-* HTML animation
+ HTML animation
 ===================================*/
 
 export const moveTestBall = () => {
