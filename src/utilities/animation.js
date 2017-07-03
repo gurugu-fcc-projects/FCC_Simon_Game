@@ -14,9 +14,9 @@ export const addColoredBubbles = () => {
   yellowBubble.classList.add('bubble-yellow');
 
   document.querySelector('.App').appendChild(redBubble);
-  document.querySelector('.App').appendChild(blueBubble);
-  document.querySelector('.App').appendChild(greenBubble);
-  document.querySelector('.App').appendChild(yellowBubble);
+  // document.querySelector('.App').appendChild(blueBubble);
+  // document.querySelector('.App').appendChild(greenBubble);
+  // document.querySelector('.App').appendChild(yellowBubble);
 };
 
 /*==================================
