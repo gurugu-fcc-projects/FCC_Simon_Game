@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Controls from './Controls';
 import '../styles/App.css';
 import {
   testSetCanvas,
@@ -25,6 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Controls />
         <canvas></canvas>
       </div>
     );

@@ -1,0 +1,35 @@
+.Controls {
+  position: absolute;
+  display: flex;
+}
+
+.start-restart-button {
+  /*position: relative;*/
+  /*display: inline-block;*/
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
+  border: 1px solid #555;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: yellow;
+}
+
+.current-step {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border: 1px solid #555;
+  border-radius: 50%;
+  background-color: lightgrey;
+}
+
+.game-mode {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border: 1px solid #555;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: lightgrey;
+}
