@@ -3,20 +3,16 @@
 ===================================*/
 
 export const addColoredBubbles = () => {
-  const redBubble = document.createElement('div');
-  const blueBubble = document.createElement('div');
-  const greenBubble = document.createElement('div');
-  const yellowBubble = document.createElement('div');
+  for (let i = 1; i <= 4; i++) {
+    const bubble = document.createElement('div');
 
-  redBubble.classList.add('bubble-red');
-  blueBubble.classList.add('bubble-blue');
-  greenBubble.classList.add('bubble-green');
-  yellowBubble.classList.add('bubble-yellow');
-
-  document.querySelector('.App').appendChild(redBubble);
-  document.querySelector('.App').appendChild(blueBubble);
-  document.querySelector('.App').appendChild(greenBubble);
-  document.querySelector('.App').appendChild(yellowBubble);
+    bubble.classList.add(`bubble-${i}`);
+    bubble.addEventListener('mousedown', () => {
+      const snd = new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound${i}.mp3`);
+      snd.play();
+    });
+    document.querySelector('.App').appendChild(bubble);
+  }
 };
 
 /*==================================

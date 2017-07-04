@@ -3,78 +3,79 @@
   text-align: center;
 }
 
-.bubble-red,
-.bubble-blue,
-.bubble-green,
-.bubble-yellow {
+.bubble-1,
+.bubble-2,
+.bubble-3,
+.bubble-4 {
   position: absolute;
   width: 70px;
   height: 70px;
   border-radius: 50%;
   opacity: .8;
+  cursor: pointer;
 }
 
-.bubble-red {
-  top: 50%;
-  left: 50%;
+.bubble-1 {
+  top: 25%;
+  left: 25%;
   background-color: red;
-  animation: rotation-red 30s infinite linear;
-  /*animation: floating-red 2s linear infinite alternate;*/
+  /*animation: rotation-red 30s infinite linear;*/
+  animation: floating-red 2s linear infinite alternate;
 }
-.bubble-blue {
+.bubble-2 {
   top: 50%;
-  left: 50%;
+  left: 75%;
   background-color: blue;
-  animation: rotation-blue 30s infinite linear;
-  /*animation: floating-blue 2s linear infinite alternate;*/
+  /*animation: rotation-blue 30s infinite linear;*/
+  animation: floating-blue 2s linear infinite alternate;
 }
-.bubble-green {
-  top: 50%;
-  left: 50%;
+.bubble-3 {
+  top: 75%;
+  left: 25%;
   background-color: green;
-  animation: rotation-green 30s infinite linear;
-  /*animation: floating-green 2s linear infinite alternate;*/
+  /*animation: rotation-green 30s infinite linear;*/
+  animation: floating-green 2s linear infinite alternate;
 }
-.bubble-yellow {
-  top: 50%;
-  left: 50%;
+.bubble-4 {
+  top: 75%;
+  left: 75%;
   background-color: yellow;
-  animation: rotation-yellow 30s infinite linear;
-  /*animation: floating-yellow 2s linear infinite alternate;*/
+  /*animation: rotation-yellow 30s infinite linear;*/
+  animation: floating-yellow 2s linear infinite alternate;
 }
 
-/*@keyframes floating-red {
+@keyframes floating-red {
   0 {
-    left: 16%;
+    left: 26%;
   }
   100% {
-    left: 13%;
+    left: 24%;
   }
 }
 @keyframes floating-blue {
   0 {
-    left: 22%;
+    left: 74%;
   }
   100% {
-    left: 20%;
+    left: 76%;
   }
 }
 @keyframes floating-green {
   0 {
-    left: 67%;
+    left: 24%;
   }
   100% {
-    left: 69%;
+    left: 26%;
   }
 }
 @keyframes floating-yellow {
   0 {
-    left: 56%;
+    left: 76%;
   }
   100% {
-    left: 54%;
+    left: 74%;
   }
-}*/
+}
 
 @keyframes rotation-red {
   from {

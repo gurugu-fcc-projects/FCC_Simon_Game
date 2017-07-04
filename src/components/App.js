@@ -27,7 +27,6 @@ class App extends Component {
     return (
       <div className="App">
         <Controls />
-        <div className="test-element"></div>
         <canvas></canvas>
       </div>
     );
