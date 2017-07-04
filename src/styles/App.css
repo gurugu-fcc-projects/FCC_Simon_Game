@@ -12,31 +12,34 @@
   height: 70px;
   border-radius: 50%;
   opacity: .8;
-  animation: rotation 30s infinite linear;
 }
 
 .bubble-red {
   top: 50%;
   left: 50%;
   background-color: red;
+  animation: rotation-red 30s infinite linear;
   /*animation: floating-red 2s linear infinite alternate;*/
 }
 .bubble-blue {
-  top: 80%;
+  top: 50%;
   left: 50%;
   background-color: blue;
+  animation: rotation-blue 30s infinite linear;
   /*animation: floating-blue 2s linear infinite alternate;*/
 }
 .bubble-green {
   top: 27%;
   left: 68%;
   background-color: green;
+  animation: rotation-green 30s infinite linear;
   /*animation: floating-green 2s linear infinite alternate;*/
 }
 .bubble-yellow {
   top: 55%;
   left: 55%;
   background-color: yellow;
+  animation: rotation-yellow 30s infinite linear;
   /*animation: floating-yellow 2s linear infinite alternate;*/
 }
 
@@ -73,7 +76,7 @@
   }
 }
 
-@keyframes rotation {
+@keyframes rotation-red {
   from {
     transform:  rotate(0deg)
                 translate(-250px)
@@ -83,5 +86,41 @@
     transform:  rotate(360deg)
                 translate(-150px)
                 rotate(-360deg);
+  }
+}
+@keyframes rotation-blue {
+  from {
+    transform:  rotate(90deg)
+                translate(-250px)
+                rotate(90deg);
+  }
+  to {
+    transform:  rotate(450deg)
+                translate(-150px)
+                rotate(-270deg);
+  }
+}
+@keyframes rotation-green {
+  from {
+    transform:  rotate(180deg)
+                translate(-250px)
+                rotate(180deg);
+  }
+  to {
+    transform:  rotate(540deg)
+                translate(-150px)
+                rotate(-180deg);
+  }
+}
+@keyframes rotation-yellow {
+  from {
+    transform:  rotate(270deg)
+                translate(-250px)
+                rotate(270deg);
+  }
+  to {
+    transform:  rotate(630deg)
+                translate(-150px)
+                rotate(-90deg);
   }
 }

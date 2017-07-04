@@ -14,9 +14,9 @@ export const addColoredBubbles = () => {
   yellowBubble.classList.add('bubble-yellow');
 
   document.querySelector('.App').appendChild(redBubble);
-  // document.querySelector('.App').appendChild(blueBubble);
-  // document.querySelector('.App').appendChild(greenBubble);
-  // document.querySelector('.App').appendChild(yellowBubble);
+  document.querySelector('.App').appendChild(blueBubble);
+  document.querySelector('.App').appendChild(greenBubble);
+  document.querySelector('.App').appendChild(yellowBubble);
 };
 
 /*==================================
@@ -61,6 +61,8 @@ export const AnimatedObject = {
     this.currentXShift = 0;
     this.speed = speed;
     this.size = size;
+
+    return this;
   },
   // draw circle
   draw: function() {
@@ -99,8 +101,7 @@ export const setBubbles = (number) => {
 
   // create a set number of bubbles with random characteristics
   for (i = 1; i <= number; i++) {
-    bubbles[i] = Object.create(AnimatedObject);
-    bubbles[i].init({
+    bubbles[i] = Object.create(AnimatedObject).init({
       x: randomNumber(0, window.innerWidth),
       y: randomNumber(0, window.innerHeight),
       xShift: randomNumber(0, 15),
