@@ -2,18 +2,18 @@
  Colored bubbles
 ===================================*/
 
-export const addColoredBubbles = () => {
-  for (let i = 1; i <= 4; i++) {
-    const bubble = document.createElement('div');
-
-    bubble.classList.add(`bubble-${i}`);
-    bubble.addEventListener('mousedown', () => {
-      const snd = new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound${i}.mp3`);
-      snd.play();
-    });
-    document.querySelector('.App').appendChild(bubble);
-  }
-};
+// export const addColoredBubbles = () => {
+//   for (let i = 1; i <= 4; i++) {
+//     const bubble = document.createElement('div');
+//
+//     bubble.classList.add(`bubble-${i}`);
+//     bubble.addEventListener('mousedown', () => {
+//       const snd = new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound${i}.mp3`);
+//       snd.play();
+//     });
+//     document.querySelector('.App').appendChild(bubble);
+//   }
+// };
 
 /*==================================
  Bubble CANVAS animation

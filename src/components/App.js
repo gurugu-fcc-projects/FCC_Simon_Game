@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Controls from './Controls';
 import '../styles/App.css';
+import * as actions from '../actions';
 import {
   testSetCanvas,
   clearDisplay,
   setBubbles,
   drawBubbles,
-  addColoredBubbles,
 } from '../utilities/animation';
 
 class App extends Component {
@@ -15,7 +16,6 @@ class App extends Component {
     const bubbles = setBubbles(200);
 
     testSetCanvas();
-    addColoredBubbles();
 
     setInterval(() => {
       clearDisplay();
@@ -28,9 +28,15 @@ class App extends Component {
       <div className="App">
         <Controls />
         <canvas></canvas>
+        <div className="bubble-1" onClick={() => this.props.clickBubble(1)}></div>
+        <div className="bubble-2" onClick={() => this.props.clickBubble(2)}></div>
+        <div className="bubble-3" onClick={() => this.props.clickBubble(3)}></div>
+        <div className="bubble-4" onClick={() => this.props.clickBubble(4)}></div>
       </div>
     );
   }
 }
 
-export default App;
+
+
+export default connect(null, actions)(App);
