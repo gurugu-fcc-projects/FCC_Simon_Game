@@ -15,7 +15,6 @@ const rootReducer = (state = INIT_STATE, action) => {
     case START_GAME:
       window.setTimeout(() => {
         const bubble = Math.floor(Math.random() * 4) + 1;
-        console.log(bubble);
         const snd = new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound${bubble}.mp3`);
         snd.play();
       }, 1000);
