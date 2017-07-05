@@ -23,7 +23,7 @@
   animation: floating-red 2s linear infinite alternate;
   pointer-events: none;
 }
-.bubble-1:hover {
+.bubble-1.highlight {
   background-color: hsla(0,100%,50%,1);
 }
 .bubble-2 {
@@ -34,7 +34,7 @@
   animation: floating-blue 2s linear infinite alternate;
   pointer-events: none;
 }
-.bubble-2:hover {
+.bubble-2.highlight {
   background-color: hsla(240,100%,50%,1);
 }
 .bubble-3 {
@@ -45,7 +45,7 @@
   animation: floating-green 2s linear infinite alternate;
   pointer-events: none;
 }
-.bubble-3:hover {
+.bubble-3.highlight {
   background-color: hsla(120,100%,25%,1);
 }
 .bubble-4 {
@@ -56,7 +56,7 @@
   animation: floating-yellow 2s linear infinite alternate;
   pointer-events: none;
 }
-.bubble-4:hover {
+.bubble-4.highlight {
   background-color: hsla(60,70%,50%,1);
 }
 

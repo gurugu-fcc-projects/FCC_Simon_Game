@@ -19,12 +19,19 @@ const sounds = [
 
 const rootReducer = (state = INIT_STATE, action) => {
   switch (action.type) {
-    case START_GAME:
+    case START_GAME: {
+      const bubbleNumber = Math.floor(Math.random() * 4) + 1;
+      const bubble = document.querySelector(`.bubble-${bubbleNumber}`);
+
       window.setTimeout(() => {
-        const bubble = Math.floor(Math.random() * 4) + 1;
-        sounds[bubble - 1].play();
+        sounds[bubbleNumber - 1].play();
+        bubble.classList.add('highlight');
       }, 1000);
+      window.setTimeout(() => {
+        bubble.classList.remove('highlight');
+      }, 1300);
       break;
+    }
     case CLICK_BUBBLE:
       if (!state.isBusy) {
         sounds[action.payload - 1].play();
