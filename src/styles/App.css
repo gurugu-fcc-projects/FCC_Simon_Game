@@ -18,26 +18,35 @@
 .bubble-1 {
   top: 25%;
   left: 25%;
-  background-color: hsla(0,70%,50%, 1);
+  background-color: hsla(0,70%,50%,1);
   /*animation: rotation-red 30s infinite linear;*/
   animation: floating-red 2s linear infinite alternate;
   pointer-events: none;
 }
+.bubble-1:hover {
+  background-color: hsla(0,100%,50%,1);
+}
 .bubble-2 {
   top: 50%;
   left: 75%;
-  background-color: hsla(240,70%,50%, 1);
+  background-color: hsla(240,70%,50%,1);
   /*animation: rotation-blue 30s infinite linear;*/
   animation: floating-blue 2s linear infinite alternate;
   pointer-events: none;
 }
+.bubble-2:hover {
+  background-color: hsla(240,100%,50%,1);
+}
 .bubble-3 {
   top: 75%;
   left: 25%;
-  background-color: hsla(120,70%,25%, 1);
+  background-color: hsla(120,70%,25%,1);
   /*animation: rotation-green 30s infinite linear;*/
   animation: floating-green 2s linear infinite alternate;
   pointer-events: none;
+}
+.bubble-3:hover {
+  background-color: hsla(120,100%,25%,1);
 }
 .bubble-4 {
   top: 75%;
@@ -46,6 +55,9 @@
   /*animation: rotation-yellow 30s infinite linear;*/
   animation: floating-yellow 2s linear infinite alternate;
   pointer-events: none;
+}
+.bubble-4:hover {
+  background-color: hsla(60,70%,50%,1);
 }
 
 @keyframes floating-red {

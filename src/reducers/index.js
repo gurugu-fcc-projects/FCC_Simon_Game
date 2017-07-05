@@ -10,18 +10,24 @@ const INIT_STATE = {
   mode: 'normal',
 };
 
+const sounds = [
+  new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound1.mp3`),
+  new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound2.mp3`),
+  new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound3.mp3`),
+  new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound4.mp3`),
+];
+
 const rootReducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case START_GAME:
       window.setTimeout(() => {
         const bubble = Math.floor(Math.random() * 4) + 1;
-        const snd = new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound${bubble}.mp3`);
-        snd.play();
+        sounds[bubble - 1].play();
       }, 1000);
+      break;
     case CLICK_BUBBLE:
       if (!state.isBusy) {
-        const snd = new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound${action.payload}.mp3`);
-        snd.play();
+        sounds[action.payload - 1].play();
       }
       return state;
     default:
