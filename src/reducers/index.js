@@ -2,6 +2,7 @@ import {
   START_GAME,
   CLICK_BUBBLE,
 } from '../actions/types';
+import { activateBubble } from '../utilities/game';
 
 const INIT_STATE = {
   step: 0,
@@ -9,7 +10,6 @@ const INIT_STATE = {
   isBusy: true,
   mode: 'normal',
   intervalHighlightStart: null,
-  intervalHighlightEnd: null,
 };
 
 const sounds = [
@@ -24,25 +24,15 @@ const rootReducer = (state = INIT_STATE, action) => {
     case START_GAME: {
       // select a random bubble
       const bubbleNumber = Math.floor(Math.random() * 4) + 1;
-      const bubble = document.querySelector(`.bubble-${bubbleNumber}`);
       // clear previous timeout
       window.clearTimeout(state.intervalHighlightStart);
-      window.clearTimeout(state.intervalHighlightEnd);
-      // play sound & highlight a proper bubble
-      const startHighlighting = () => {
-        bubble.classList.add('highlight');
-        sounds[bubbleNumber - 1].play();
-      };
-      // remove highlight after a short time
-      const endHighlighting = () => bubble.classList.remove('highlight');
 
       return {
         ...state,
         step: 1,
         steps: [bubbleNumber],
         isBusy: true,
-        intervalHighlightStart: window.setTimeout(startHighlighting, 900),
-        intervalHighlightEnd: window.setTimeout(endHighlighting, 1400),
+        intervalHighlightStart: window.setTimeout(() => activateBubble(bubbleNumber), 900),
       };
     }
     case CLICK_BUBBLE:
@@ -53,7 +43,6 @@ const rootReducer = (state = INIT_STATE, action) => {
     default:
       return state;
   }
-  return state;
 };
 
 export default rootReducer;
