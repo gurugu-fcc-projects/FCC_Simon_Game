@@ -8,6 +8,8 @@ const INIT_STATE = {
   steps: [],
   isBusy: true,
   mode: 'normal',
+  intervalHighlightStart: null,
+  intervalHighlightEnd: null,
 };
 
 const sounds = [
@@ -20,17 +22,28 @@ const sounds = [
 const rootReducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case START_GAME: {
+      // select a random bubble
       const bubbleNumber = Math.floor(Math.random() * 4) + 1;
       const bubble = document.querySelector(`.bubble-${bubbleNumber}`);
-
-      window.setTimeout(() => {
-        sounds[bubbleNumber - 1].play();
+      // clear previous timeout
+      window.clearTimeout(state.intervalHighlightStart);
+      window.clearTimeout(state.intervalHighlightEnd);
+      // play sound & highlight a proper bubble
+      const startHighlighting = () => {
         bubble.classList.add('highlight');
-      }, 1000);
-      window.setTimeout(() => {
-        bubble.classList.remove('highlight');
-      }, 1300);
-      break;
+        sounds[bubbleNumber - 1].play();
+      };
+      // remove highlight after a short time
+      const endHighlighting = () => bubble.classList.remove('highlight');
+
+      return {
+        ...state,
+        step: 1,
+        steps: [bubbleNumber],
+        isBusy: true,
+        intervalHighlightStart: window.setTimeout(startHighlighting, 900),
+        intervalHighlightEnd: window.setTimeout(endHighlighting, 1400),
+      };
     }
     case CLICK_BUBBLE:
       if (!state.isBusy) {
