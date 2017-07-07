@@ -1,15 +1,14 @@
 import {
   START_GAME,
   CLICK_BUBBLE,
+  PLAY_BUBBLES,
 } from '../actions/types';
-import { activateBubble } from '../utilities/game';
 
 const INIT_STATE = {
-  step: 0,
-  steps: [],
+  level: 0,
+  steps: [1, 2, 3, 4],
   isBusy: true,
   mode: 'normal',
-  intervalHighlightStart: null,
 };
 
 const sounds = [
@@ -22,27 +21,30 @@ const sounds = [
 const rootReducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case START_GAME: {
-      // select a random bubble
-      const bubbleNumber = Math.floor(Math.random() * 4) + 1;
-      // clear previous timeout
-      window.clearTimeout(state.intervalHighlightStart);
-
       return {
         ...state,
-        step: 1,
-        steps: [bubbleNumber],
+        steps: [],
         isBusy: true,
-        intervalHighlightStart: window.setTimeout(() => activateBubble(bubbleNumber), 900),
       };
     }
-    case CLICK_BUBBLE:
+    case PLAY_BUBBLES:
+      return {
+        ...state,
+        level: action.payload.length,
+        steps: action.payload,
+        isBusy: false,
+      }
+    case CLICK_BUBBLE: {
       if (!state.isBusy) {
         sounds[action.payload - 1].play();
       }
       return state;
+    }
     default:
       return state;
   }
 };
+
+export const getPreviousBubbles = (state) => state.steps;
 
 export default rootReducer;

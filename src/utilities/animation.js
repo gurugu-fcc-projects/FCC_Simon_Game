@@ -19,7 +19,7 @@
  Bubble CANVAS animation
 ===================================*/
 
-export const testSetCanvas = () => {
+export const setCanvas = () => {
   const canvas = document.querySelector('canvas');
 
   canvas.width = window.innerWidth;

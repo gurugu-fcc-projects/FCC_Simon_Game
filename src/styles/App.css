@@ -3,6 +3,14 @@
   text-align: center;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
+.unclickable {
+  pointer-events: none;
+}
+
 .bubble-1,
 .bubble-2,
 .bubble-3,
@@ -11,7 +19,6 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  cursor: pointer;
 }
 
 .bubble-1 {
@@ -20,7 +27,6 @@
   background-color: hsla(0,40%,50%,1);
   /*animation: rotation-red 30s infinite linear;*/
   animation: floating-red 2s linear infinite alternate;
-  pointer-events: none;
 }
 .bubble-1.highlight {
   background-color: hsla(0,100%,50%,1);
@@ -31,7 +37,6 @@
   background-color: hsla(240,40%,50%,1);
   /*animation: rotation-blue 30s infinite linear;*/
   animation: floating-blue 2s linear infinite alternate;
-  pointer-events: none;
 }
 .bubble-2.highlight {
   background-color: hsla(240,100%,50%,1);
@@ -42,7 +47,6 @@
   background-color: hsla(120,40%,25%,1);
   /*animation: rotation-green 30s infinite linear;*/
   animation: floating-green 2s linear infinite alternate;
-  pointer-events: none;
 }
 .bubble-3.highlight {
   background-color: hsla(120,100%,25%,1);
@@ -53,7 +57,6 @@
   background-color: hsla(60,40%,50%, 1);
   /*animation: rotation-yellow 30s infinite linear;*/
   animation: floating-yellow 2s linear infinite alternate;
-  pointer-events: none;
 }
 .bubble-4.highlight {
   background-color: hsla(60,70%,50%,1);
@@ -92,7 +95,7 @@
   }
 }
 
-@keyframes rotation-red {
+/*@keyframes rotation-red {
   from {
     transform:  rotate(0deg)
                 translate(-150px)
@@ -139,4 +142,4 @@
                 translate(-150px)
                 rotate(-180deg);
   }
-}
+}*/
