@@ -10,6 +10,7 @@ const INIT_STATE = {
   stepsForTesting: [],
   isBusy: true,
   isNextTurn: false,
+  isRepeating: false,
   mode: 'normal',
 };
 
@@ -23,6 +24,7 @@ const rootReducer = (state = INIT_STATE, action) => {
         stepsForTesting: action.payload,
         isBusy: false,
         isNextTurn: false,
+        isRepeating: false,
       }
     case CLICK_SUCCESS:
       if (action.payload.length < 1) {
@@ -38,11 +40,13 @@ const rootReducer = (state = INIT_STATE, action) => {
         stepsForTesting: action.payload,
       };
     case CLICK_FAILURE:
-    return {
-      ...state,
-      stepsForTesting: state.steps,
-      isBusy: true,
-    };
+      return {
+        ...state,
+        level: '!!',
+        stepsForTesting: state.steps,
+        isBusy: true,
+        isRepeating: true,
+      };
     default:
       return state;
   }

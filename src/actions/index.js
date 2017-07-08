@@ -32,7 +32,7 @@ export const clickBubble = (id) => (dispatch, getState) => {
   }, 500);
 };
 
-export const incrementBubbles = (isGameStart) => (dispatch, getState) => {
+export const incrementBubbles = (isGameStart = false, isRepeat = false) => (dispatch, getState) => {
   // clear previously set interval
   window.clearInterval(playBubblesIntervalID);
   // get previous steps
@@ -40,8 +40,10 @@ export const incrementBubbles = (isGameStart) => (dispatch, getState) => {
   // randomly generate the next step
   const newBubble = Math.floor(Math.random() * 4) + 1;
   // add new step to previous steps
-  const newBubbles = [...previousBubbles, newBubble];
+  const newBubbles = isRepeat ? previousBubbles : [...previousBubbles, newBubble];
   let counter = 0;
+
+  console.log('newBubbles:', newBubbles);
 
   playBubblesIntervalID = window.setInterval(() => {
 
