@@ -39,11 +39,9 @@ export const incrementBubbles = (isGameStart = false, isRepeat = false) => (disp
   const previousBubbles = isGameStart ? [] : getPreviousBubbles(getState());
   // randomly generate the next step
   const newBubble = Math.floor(Math.random() * 4) + 1;
-  // add new step to previous steps
+  // add a new step to previous steps unless the steps are repeated
   const newBubbles = isRepeat ? previousBubbles : [...previousBubbles, newBubble];
   let counter = 0;
-
-  console.log('newBubbles:', newBubbles);
 
   playBubblesIntervalID = window.setInterval(() => {
 
