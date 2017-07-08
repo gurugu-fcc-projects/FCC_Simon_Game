@@ -30,10 +30,9 @@ class App extends Component {
       <div className="App">
         <Controls />
         <canvas></canvas>
-        <div className={`bubble-1 ${isBusy ? 'unclickable' : 'clickable'}`} onClick={() => this.props.clickBubble(1)}></div>
-        <div className={`bubble-2 ${isBusy ? 'unclickable' : 'clickable'}`} onClick={() => this.props.clickBubble(2)}></div>
-        <div className={`bubble-3 ${isBusy ? 'unclickable' : 'clickable'}`} onClick={() => this.props.clickBubble(3)}></div>
-        <div className={`bubble-4 ${isBusy ? 'unclickable' : 'clickable'}`} onClick={() => this.props.clickBubble(4)}></div>
+        {[1, 2, 3, 4].map(number => {
+          return <div className={`bubble-${number} ${isBusy ? 'unclickable' : 'clickable'}`} onClick={() => this.props.clickBubble(number)}></div>;
+        })}
       </div>
     );
   }

@@ -11,13 +11,6 @@ const INIT_STATE = {
   mode: 'normal',
 };
 
-const sounds = [
-  new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound1.mp3`),
-  new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound2.mp3`),
-  new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound3.mp3`),
-  new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound4.mp3`),
-];
-
 const rootReducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case START_GAME: {
