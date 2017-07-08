@@ -1,5 +1,5 @@
 import {
-  START_GAME,
+  // START_GAME,
   CLICK_BUBBLE,
   PLAY_BUBBLES,
 } from './types';
@@ -12,12 +12,12 @@ import {
 
 let playBubblesIntervalID;
 
-export const startGame = () => {
-  return {
-    type: START_GAME,
-  };
-};
-
+// export const startGame = () => {
+//   return {
+//     type: START_GAME,
+//   };
+// };
+//
 export const clickBubble = (id) => {
   activateBubble(id);
 

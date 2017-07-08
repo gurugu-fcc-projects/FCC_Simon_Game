@@ -1,0 +1,18 @@
+import React from 'react';
+import { connect } from 'react-redux';
+
+import * as actions from '../actions';
+
+const Bubble = ({ number, isBusy, clickBubble }) => {
+  return (
+    <div
+      className={`bubble-${number} ${isBusy ? 'unclickable' : 'clickable'}`}
+      onClick={() => clickBubble(number)}></div>
+  );
+};
+
+const mapStateToProps = (state) => ({
+  isBusy: state.isBusy,
+});
+
+export default connect(mapStateToProps, actions)(Bubble);
