@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import Controls from './Controls';
 import Bubble from './Bubble';
 import '../styles/App.css';
-// import * as actions from '../actions';
+import * as actions from '../actions';
 import {
   setCanvas,
   clearDisplay,
@@ -25,6 +25,9 @@ class App extends Component {
   }
 
   render() {
+    const { isNextTurn, isRepeating } = this.props;
+    const message = isRepeating ? 'WRONG!' : 'BINGO!';
+
     return (
       <div className="App">
         <Controls />
@@ -32,10 +35,16 @@ class App extends Component {
         {[1, 2, 3, 4].map(number => {
           return <Bubble key={number} number={number} />;
         })}
+        <div className="floating-message">{isRepeating ? 'WRONG!' : 'BINGO!'}</div>
       </div>
     );
   }
 }
 
-// export default connect(null, actions)(App);
-export default App;
+const mapStateToProps = (state) => ({
+  isNextTurn: state.isNextTurn,
+  isRepeating: state.isRepeating,
+});
+
+export default connect(mapStateToProps, actions)(App);
+// export default App;

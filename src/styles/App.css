@@ -2,3 +2,15 @@
   position: relative;
   text-align: center;
 }
+
+.floating-message {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /*left: 40%;*/
+  display: block;
+  text-align: center;
+  font-size: 4em;
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+}

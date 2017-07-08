@@ -23,19 +23,20 @@ class Controls extends Component {
   }
 
   render() {
-    const { level, isRepeating } = this.props;
+    const { mode, level, isRepeating } = this.props;
 
     return (
       <div className="Controls">
         <div className="start-restart-button" onClick={this.startGame}>{level === 0 ? 'Start' : 'Restart'}</div>
         <div className={`current-step ${isRepeating ? 'error' : ''}`}>{level === 0 ? '--' : level}</div>
-        <div className="game-mode">strict</div>
+        <div className="game-mode">{mode}</div>
       </div>
     );
   }
 };
 
 const mapStateToProps = (state) => ({
+  mode: state.mode,
   level: state.level,
   steps: state.steps,
   isNextTurn: state.isNextTurn,
