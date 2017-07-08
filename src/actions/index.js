@@ -1,6 +1,6 @@
 import {
   CLICK_BUBBLE,
-  PLAY_BUBBLES,
+  INCREMENT_BUBBLES,
 } from './types';
 import {
   getPreviousBubbles,
@@ -20,7 +20,7 @@ export const clickBubble = (id) => {
   };
 };
 
-export const playBubbles = (isGameStart) => (dispatch, getState) => {
+export const incrementBubbles = (isGameStart) => (dispatch, getState) => {
   // clear previously set interval
   window.clearInterval(playBubblesIntervalID);
   // get previous steps
@@ -38,7 +38,7 @@ export const playBubbles = (isGameStart) => (dispatch, getState) => {
 
       window.setTimeout(() => {
         dispatch({
-          type: PLAY_BUBBLES,
+          type: INCREMENT_BUBBLES,
           payload: newBubbles,
         });
       }, 1000);

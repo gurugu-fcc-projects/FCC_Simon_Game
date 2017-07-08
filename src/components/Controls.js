@@ -6,7 +6,7 @@ import * as actions from '../actions';
 
 class Controls extends Component {
   startGame = () => {
-    this.props.playBubbles(true);
+    this.props.incrementBubbles(true);
   }
 
   render() {
