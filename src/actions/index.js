@@ -18,16 +18,18 @@ export const clickBubble = (id) => (dispatch, getState) => {
 
   activateBubble(id);
 
-  if (id === testBubbles[0]) {
-    dispatch({
-      type: CLICK_SUCCESS,
-      payload: testBubbles.slice(1),
-    });
-  } else {
-    dispatch({
-      type: CLICK_FAILURE,
-    });
-  }
+  window.setTimeout(() => {
+    if (id === testBubbles[0]) {
+      dispatch({
+        type: CLICK_SUCCESS,
+        payload: testBubbles.slice(1),
+      });
+    } else {
+      dispatch({
+        type: CLICK_FAILURE,
+      });
+    }
+  }, 500);
 };
 
 export const incrementBubbles = (isGameStart) => (dispatch, getState) => {

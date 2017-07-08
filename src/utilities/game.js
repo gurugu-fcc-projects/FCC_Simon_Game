@@ -6,6 +6,7 @@ const sounds = [
 ];
 
 export const activateBubble = (bubbleNumber) => {
+  // console.log('bubbleNumber:', bubbleNumber);
   const bubble = document.querySelector(`.bubble-${bubbleNumber}`);
   // play sound & highlight a proper bubble
   bubble.classList.add('highlight');
