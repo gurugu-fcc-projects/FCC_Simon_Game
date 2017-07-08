@@ -35,9 +35,6 @@ const rootReducer = (state = INIT_STATE, action) => {
         isBusy: false,
       }
     case CLICK_BUBBLE: {
-      if (!state.isBusy) {
-        sounds[action.payload - 1].play();
-      }
       return state;
     }
     default:

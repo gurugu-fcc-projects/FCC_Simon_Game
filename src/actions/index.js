@@ -19,6 +19,8 @@ export const startGame = () => {
 };
 
 export const clickBubble = (id) => {
+  activateBubble(id);
+
   return {
     type: CLICK_BUBBLE,
     payload: id,

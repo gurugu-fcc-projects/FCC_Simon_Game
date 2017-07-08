@@ -24,19 +24,23 @@ class App extends Component {
   }
 
   render() {
+    const { isBusy } = this.props;
+
     return (
       <div className="App">
         <Controls />
         <canvas></canvas>
-        <div className="bubble-1 unclickable" onClick={() => this.props.clickBubble(1)}></div>
-        <div className="bubble-2 unclickable" onClick={() => this.props.clickBubble(2)}></div>
-        <div className="bubble-3 unclickable" onClick={() => this.props.clickBubble(3)}></div>
-        <div className="bubble-4 unclickable" onClick={() => this.props.clickBubble(4)}></div>
+        <div className={`bubble-1 ${isBusy ? 'unclickable' : 'clickable'}`} onClick={() => this.props.clickBubble(1)}></div>
+        <div className={`bubble-2 ${isBusy ? 'unclickable' : 'clickable'}`} onClick={() => this.props.clickBubble(2)}></div>
+        <div className={`bubble-3 ${isBusy ? 'unclickable' : 'clickable'}`} onClick={() => this.props.clickBubble(3)}></div>
+        <div className={`bubble-4 ${isBusy ? 'unclickable' : 'clickable'}`} onClick={() => this.props.clickBubble(4)}></div>
       </div>
     );
   }
 }
 
+const mapStateToProps = (state) => ({
+  isBusy: state.isBusy,
+});
 
-
-export default connect(null, actions)(App);
+export default connect(mapStateToProps, actions)(App);

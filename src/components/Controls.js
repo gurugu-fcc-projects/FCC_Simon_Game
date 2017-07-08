@@ -3,18 +3,8 @@ import { connect } from 'react-redux';
 
 import '../styles/Controls.css';
 import * as actions from '../actions';
-import { activateBubble } from '../utilities/game';
 
 class Controls extends Component {
-  // constructor(props) {
-  //   super(props);
-  //
-  //   this.state = {
-  //   };
-  //
-  //   this.startGame = this.startGame.bind(this);
-  // }
-
   startGame = () => {
     this.props.playBubbles(true);
   }
