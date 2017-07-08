@@ -14,7 +14,7 @@ class Controls extends Component {
 
     return (
       <div className="Controls">
-        <div className="start-restart-button" onClick={this.startGame}>Start</div>
+        <div className="start-restart-button" onClick={this.startGame}>{level > 0 ? 'Restart' : 'Start'}</div>
         <div className="current-step">{level === 0 ? '--' : level}</div>
         <div className="game-mode">strict</div>
       </div>
