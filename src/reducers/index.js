@@ -11,6 +11,7 @@ const INIT_STATE = {
   isBusy: true,
   isNextTurn: false,
   isRepeating: false,
+  isFailure: false,
   mode: 'normal',
 };
 

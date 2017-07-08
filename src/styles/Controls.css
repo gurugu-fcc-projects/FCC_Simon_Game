@@ -21,6 +21,12 @@
   border: 1px solid #555;
   border-radius: 50%;
   background-color: lightgrey;
+  transition: background-color 0.3s;
+}
+
+.error {
+  font-size: 1.5em;
+  background-color: red;
 }
 
 .game-mode {
