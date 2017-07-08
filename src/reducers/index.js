@@ -1,5 +1,4 @@
 import {
-  // START_GAME,
   CLICK_BUBBLE,
   PLAY_BUBBLES,
 } from '../actions/types';
@@ -13,13 +12,6 @@ const INIT_STATE = {
 
 const rootReducer = (state = INIT_STATE, action) => {
   switch (action.type) {
-    // case START_GAME: {
-    //   return {
-    //     ...state,
-    //     steps: [],
-    //     isBusy: true,
-    //   };
-    // }
     case PLAY_BUBBLES:
       return {
         ...state,

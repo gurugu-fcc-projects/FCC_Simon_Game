@@ -1,5 +1,4 @@
 import {
-  // START_GAME,
   CLICK_BUBBLE,
   PLAY_BUBBLES,
 } from './types';
@@ -12,12 +11,6 @@ import {
 
 let playBubblesIntervalID;
 
-// export const startGame = () => {
-//   return {
-//     type: START_GAME,
-//   };
-// };
-//
 export const clickBubble = (id) => {
   activateBubble(id);
 
@@ -43,10 +36,12 @@ export const playBubbles = (isGameStart) => (dispatch, getState) => {
     if (counter === newBubbles.length - 1) {
       window.clearInterval(playBubblesIntervalID);
 
-      dispatch({
-        type: PLAY_BUBBLES,
-        payload: newBubbles,
-      });
+      window.setTimeout(() => {
+        dispatch({
+          type: PLAY_BUBBLES,
+          payload: newBubbles,
+        });
+      }, 1000);
     }
 
     activateBubble(newBubbles[counter]);

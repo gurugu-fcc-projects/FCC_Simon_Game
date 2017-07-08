@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 import Controls from './Controls';
 import Bubble from './Bubble';
@@ -37,4 +37,5 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+// export default connect(null, actions)(App);
+export default App;
