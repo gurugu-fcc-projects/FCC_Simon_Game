@@ -6,24 +6,26 @@ import * as actions from '../actions';
 import { activateBubble } from '../utilities/game';
 
 class Controls extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-    };
-
-    this.startGame = this.startGame.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //
+  //   this.state = {
+  //   };
+  //
+  //   this.startGame = this.startGame.bind(this);
+  // }
 
   startGame = () => {
     this.props.playBubbles(true);
   }
 
   render() {
+    const { level } = this.props;
+
     return (
       <div className="Controls">
         <div className="start-restart-button" onClick={this.startGame}>Start</div>
-        <div className="current-step">!!</div>
+        <div className="current-step">{level === 0 ? '--' : level}</div>
         <div className="game-mode">strict</div>
       </div>
     );
@@ -31,6 +33,7 @@ class Controls extends Component {
 };
 
 const mapStateToProps = (state) => ({
+  level: state.level,
   steps: state.steps,
 });
 
