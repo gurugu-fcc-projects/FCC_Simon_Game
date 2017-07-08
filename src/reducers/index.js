@@ -1,6 +1,7 @@
 import {
-  CLICK_BUBBLE,
   INCREMENT_BUBBLES,
+  CLICK_SUCCESS,
+  CLICK_FAILURE,
 } from '../actions/types';
 
 const INIT_STATE = {
@@ -8,6 +9,7 @@ const INIT_STATE = {
   steps: [1, 2, 3, 4],
   stepsForTesting: [],
   isBusy: true,
+  isNextTurn: false,
   mode: 'normal',
 };
 
@@ -18,16 +20,36 @@ const rootReducer = (state = INIT_STATE, action) => {
         ...state,
         level: action.payload.length,
         steps: action.payload,
+        stepsForTesting: action.payload,
         isBusy: false,
+        isNextTurn: false,
       }
-    case CLICK_BUBBLE: {
-      return state;
-    }
+    case CLICK_SUCCESS:
+      if (action.payload.length < 1) {
+        return {
+          ...state,
+          stepsForTesting: action.payload,
+          isBusy: true,
+          isNextTurn: true,
+        };
+      }
+      return {
+        ...state,
+        stepsForTesting: action.payload,
+      };
+    case CLICK_FAILURE:
+    return {
+      ...state,
+      stepsForTesting: state.steps,
+      isBusy: true,
+    };
     default:
       return state;
   }
 };
 
 export const getPreviousBubbles = (state) => state.steps;
+
+export const getTestBubbles = (state) => state.stepsForTesting;
 
 export default rootReducer;

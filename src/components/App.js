@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Controls from './Controls';
 import Bubble from './Bubble';
 import '../styles/App.css';
-import * as actions from '../actions';
+// import * as actions from '../actions';
 import {
   setCanvas,
   clearDisplay,

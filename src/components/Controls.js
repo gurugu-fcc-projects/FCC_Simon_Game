@@ -5,6 +5,12 @@ import '../styles/Controls.css';
 import * as actions from '../actions';
 
 class Controls extends Component {
+  componentDidUpdate() {
+    if (this.props.isNextTurn) {
+      this.props.incrementBubbles();
+    }
+  }
+
   startGame = () => {
     this.props.incrementBubbles(true);
   }
@@ -25,6 +31,7 @@ class Controls extends Component {
 const mapStateToProps = (state) => ({
   level: state.level,
   steps: state.steps,
+  isNextTurn: state.isNextTurn,
 });
 
 export default connect(mapStateToProps, actions)(Controls);

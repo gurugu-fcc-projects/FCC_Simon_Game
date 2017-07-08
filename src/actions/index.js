@@ -1,23 +1,33 @@
 import {
-  CLICK_BUBBLE,
   INCREMENT_BUBBLES,
+  CLICK_SUCCESS,
+  CLICK_FAILURE,
 } from './types';
 import {
   getPreviousBubbles,
+  getTestBubbles,
 } from '../reducers';
 import {
-  activateBubble
+  activateBubble,
 } from '../utilities/game';
 
 let playBubblesIntervalID;
 
-export const clickBubble = (id) => {
+export const clickBubble = (id) => (dispatch, getState) => {
+  const testBubbles = getTestBubbles(getState());
+
   activateBubble(id);
 
-  return {
-    type: CLICK_BUBBLE,
-    payload: id,
-  };
+  if (id === testBubbles[0]) {
+    dispatch({
+      type: CLICK_SUCCESS,
+      payload: testBubbles.slice(1),
+    });
+  } else {
+    dispatch({
+      type: CLICK_FAILURE,
+    });
+  }
 };
 
 export const incrementBubbles = (isGameStart) => (dispatch, getState) => {
