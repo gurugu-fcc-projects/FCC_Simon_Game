@@ -7,11 +7,23 @@
   width: 90px;
   height: 90px;
   line-height: 90px;
-  border: 1px solid #555;
+  /*color: #0962EA;*/
+  color: #FFF;
+  /*border: 1px solid #9A9A9A;*/
   border-radius: 50%;
   cursor: pointer;
-  background-color: yellow;
+  background-color: #339FBA;
+  /*background-color: #F03861;*/
+  transition: background-color .3s;
   user-select: none;
+}
+
+.start-restart-button:hover {
+  background-color: #246F82;
+}
+
+html.can-touch .start-restart-button:hover {
+  background-color: #339FBA;
 }
 
 .current-step,
@@ -19,23 +31,24 @@
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border: 1px solid #555;
+  color: #FFF;
+  /*color: #0962EA;*/
+  /*border: 1px solid #C0C0C0;*/
   border-radius: 50%;
-  background-color: lightgrey;
-  transition: background-color 0.3s;
+  /*background-color: #0E7CF4;*/
+  background-color: #046E8F;
   user-select: none;
 }
 
 .game-mode {
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.test-element {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #fff;
+.game-mode:hover {
+  background-color: #035169;
+}
+
+html.can-touch .game-mode:hover {
+  background-color: #046E8F;
 }

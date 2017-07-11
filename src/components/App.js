@@ -6,6 +6,7 @@ import Bubble from './Bubble';
 import '../styles/App.css';
 import * as actions from '../actions';
 import { drawBgAnimation } from '../utilities/animation';
+import { touchOrMouse } from '../utilities/touchOrMouse';
 
 class App extends Component {
   componentDidMount() {
@@ -15,6 +16,7 @@ class App extends Component {
   render() {
     const { showMessage, message } = this.props;
 
+    touchOrMouse();
     window.onresize = () => drawBgAnimation(200);
 
     return (

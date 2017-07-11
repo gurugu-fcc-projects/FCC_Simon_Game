@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import '../styles/Controls.css';
 import * as actions from '../actions';
+import { touchOrMouse } from '../utilities/touchOrMouse';
 
 class Controls extends Component {
   clearMessage = (isGameStart = false, isRepeat = false) => {
@@ -13,6 +14,7 @@ class Controls extends Component {
   };
 
   startGame = () => {
+    touchOrMouse();
     this.props.incrementBubbles(true);
   }
 

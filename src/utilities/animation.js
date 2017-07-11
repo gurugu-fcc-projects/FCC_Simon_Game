@@ -33,7 +33,9 @@ export const clearDisplay = () => {
   const cx = canvas.getContext('2d');
 
   // cx.fillStyle = '#0D3446';
-  cx.fillStyle = '#2866AB';
+  // cx.fillStyle = '#2866AB';
+  // cx.fillStyle = '#0AA0F6';
+  cx.fillStyle = '#183446';
   cx.fillRect(0, 0, canvas.width, canvas.height);
 };
 
@@ -43,7 +45,9 @@ const drawBall = (options = {x: 100, y: 0, size: 10}) => {
   const { x, y, size } = options;
 
   // cx.strokeStyle = '#176D81';
-  cx.strokeStyle = '#073059';
+  // cx.strokeStyle = '#073059';
+  // cx.strokeStyle = '#0962EA';
+  cx.strokeStyle = '#0090C1';
   cx.beginPath();
   cx.arc(x, y, size, 0, 7);
   cx.stroke();
