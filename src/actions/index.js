@@ -2,7 +2,7 @@ import {
   INCREMENT_BUBBLES,
   CLICK_SUCCESS,
   CLICK_FAILURE,
-  CLEAR_FAILURE,
+  CLEAR_MESSAGE,
   CHANGE_MODE,
 } from './types';
 import {
@@ -56,7 +56,7 @@ export const incrementBubbles = (isGameStart = false, isRepeat = false) => (disp
           type: INCREMENT_BUBBLES,
           payload: newBubbles,
         });
-      }, 1000);
+      }, 900);
     }
 
     activateBubble(newBubbles[counter]);
@@ -65,9 +65,9 @@ export const incrementBubbles = (isGameStart = false, isRepeat = false) => (disp
 
 };
 
-export const clearFailure = () => {
+export const clearMessage = () => {
   return {
-    type: CLEAR_FAILURE,
+    type: CLEAR_MESSAGE,
   };
 };
 

@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   render() {
-    const { isRepeating } = this.props;
+    const { showMessage, message } = this.props;
 
     return (
       <div className="App">
@@ -34,8 +34,8 @@ class App extends Component {
         {[1, 2, 3, 4].map(number => {
           return <Bubble key={number} number={number} />;
         })}
-        <div className={`floating-message ${isRepeating && 'shown'}`}>
-          WRONG!
+        <div className={`floating-message ${showMessage && 'shown'}`}>
+          {message}
         </div>
       </div>
     );
@@ -44,6 +44,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   isRepeating: state.isRepeating,
+  showMessage: state.showMessage,
+  message: state.message,
 });
 
 export default connect(mapStateToProps, actions)(App);
