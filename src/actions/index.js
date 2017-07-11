@@ -4,6 +4,7 @@ import {
   CLICK_FAILURE,
   CLEAR_MESSAGE,
   CHANGE_MODE,
+  TIMEOUT,
 } from './types';
 import {
   getPreviousBubbles,
@@ -14,14 +15,21 @@ import {
 } from '../utilities/game';
 
 let playBubblesIntervalID;
+let timerID;
 
 export const clickBubble = (id) => (dispatch, getState) => {
   const testBubbles = getTestBubbles(getState());
 
+  window.clearTimeout(timerID);
   activateBubble(id);
 
   window.setTimeout(() => {
     if (id === testBubbles[0]) {
+      timerID = window.setTimeout(() => {
+        dispatch({
+          type: TIMEOUT,
+        });
+      }, 10000);
       dispatch({
         type: CLICK_SUCCESS,
         payload: testBubbles.slice(1),
@@ -37,6 +45,8 @@ export const clickBubble = (id) => (dispatch, getState) => {
 export const incrementBubbles = (isGameStart = false, isRepeat = false) => (dispatch, getState) => {
   // clear previously set interval
   window.clearInterval(playBubblesIntervalID);
+  // clear previously set timeout
+  window.clearTimeout(timerID);
   // get previous steps
   const previousBubbles = isGameStart ? [] : getPreviousBubbles(getState());
   // randomly choose a bubble for the next step
@@ -46,7 +56,13 @@ export const incrementBubbles = (isGameStart = false, isRepeat = false) => (disp
   let counter = 0;
 
   playBubblesIntervalID = window.setInterval(() => {
-
+    // clear previously set timeout
+    window.clearTimeout(timerID);
+    timerID = window.setTimeout(() => {
+      dispatch({
+        type: TIMEOUT,
+      });
+    }, 10000);
     // send action to reducer when all bubbles are iterated over
     if (counter === newBubbles.length - 1) {
       window.clearInterval(playBubblesIntervalID);

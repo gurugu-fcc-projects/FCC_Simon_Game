@@ -4,6 +4,7 @@ import {
   CLICK_FAILURE,
   CLEAR_MESSAGE,
   CHANGE_MODE,
+  TIMEOUT,
 } from '../actions/types';
 
 const INIT_STATE = {
@@ -86,6 +87,15 @@ const rootReducer = (state = INIT_STATE, action) => {
       return {
         ...state,
         mode: state.mode === 'normal' ? 'strict' : 'normal',
+      };
+    case TIMEOUT:
+      return {
+        ...state,
+        stepsForChecking: state.steps,
+        isBusy: true,
+        isRepeating: true,
+        showMessage: true,
+        message: 'TIMEOUT!',
       };
     default:
       return state;

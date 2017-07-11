@@ -16,7 +16,9 @@ class App extends Component {
   render() {
     const { showMessage, message } = this.props;
 
+    // remove HOVER effect on touch devices
     touchOrMouse();
+    // redraw background animation on screen resizing
     window.onresize = () => drawBgAnimation(200);
 
     return (
@@ -35,7 +37,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isRepeating: state.isRepeating,
   showMessage: state.showMessage,
   message: state.message,
 });

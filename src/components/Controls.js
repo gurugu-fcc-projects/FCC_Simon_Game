@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import '../styles/Controls.css';
 import * as actions from '../actions';
-import { touchOrMouse } from '../utilities/touchOrMouse';
 
 class Controls extends Component {
   clearMessage = (isGameStart = false, isRepeat = false) => {
@@ -14,7 +13,6 @@ class Controls extends Component {
   };
 
   startGame = () => {
-    touchOrMouse();
     this.props.incrementBubbles(true);
   }
 
@@ -29,9 +27,11 @@ class Controls extends Component {
     }
     // repeat playing bubbles after incorrect choice
     if (this.props.isRepeating) {
-      if (this.props.mode === 'normal') {
+      if (this.props.mode === 'normal' && this.props.message !== 'TIMEOUT!') {
+        // continue game
         this.clearMessage(false, true);
-      } else {
+      } else if (this.props.mode === 'strict' || this.props.message === 'TIMEOUT!') {
+        // restart game
         this.clearMessage(true);
       }
     }
