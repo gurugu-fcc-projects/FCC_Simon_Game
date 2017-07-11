@@ -10,8 +10,8 @@
 }
 
 .bubble-1 {
-  top: 25%;
-  left: 25%;
+  top: 50%;
+  left: 20%;
   background-color: hsla(0,40%,50%,1);
   /*animation: rotation-red 30s infinite linear;*/
   animation: floating-red 2s linear infinite alternate;
@@ -21,7 +21,7 @@
 }
 .bubble-2 {
   top: 50%;
-  left: 75%;
+  left: 40%;
   background-color: hsla(240,40%,50%,1);
   /*animation: rotation-blue 30s infinite linear;*/
   animation: floating-blue 2s linear infinite alternate;
@@ -30,8 +30,8 @@
   background-color: hsla(240,100%,50%,1);
 }
 .bubble-3 {
-  top: 75%;
-  left: 25%;
+  top: 50%;
+  left: 60%;
   background-color: hsla(120,40%,25%,1);
   /*animation: rotation-green 30s infinite linear;*/
   animation: floating-green 2s linear infinite alternate;
@@ -40,8 +40,8 @@
   background-color: hsla(120,100%,25%,1);
 }
 .bubble-4 {
-  top: 75%;
-  left: 75%;
+  top: 50%;
+  left: 80%;
   background-color: hsla(60,40%,50%, 1);
   /*animation: rotation-yellow 30s infinite linear;*/
   animation: floating-yellow 2s linear infinite alternate;
@@ -52,34 +52,34 @@
 
 @keyframes floating-red {
   0 {
-    left: 26%;
+    left: 21%;
   }
   100% {
-    left: 24%;
+    left: 19%;
   }
 }
 @keyframes floating-blue {
   0 {
-    left: 74%;
+    left: 39%;
   }
   100% {
-    left: 76%;
+    left: 41%;
   }
 }
 @keyframes floating-green {
   0 {
-    left: 24%;
+    left: 61%;
   }
   100% {
-    left: 26%;
+    left: 59%;
   }
 }
 @keyframes floating-yellow {
   0 {
-    left: 76%;
+    left: 79%;
   }
   100% {
-    left: 74%;
+    left: 81%;
   }
 }
 
