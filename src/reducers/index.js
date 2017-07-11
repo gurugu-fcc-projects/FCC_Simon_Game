@@ -70,12 +70,14 @@ const rootReducer = (state = INIT_STATE, action) => {
         return {
           ...state,
           level: 1,
+          isNextTurn: false,
           isRepeating: false,
           showMessage: false,
         };
       }
       return {
         ...state,
+        isNextTurn: false,
         isRepeating: false,
         showMessage: false,
       };

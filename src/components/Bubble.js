@@ -7,7 +7,7 @@ import '../styles/Bubble.css';
 const Bubble = ({ number, isBusy, clickBubble }) => {
   return (
     <div
-      className={`bubble-${number} ${isBusy ? 'unclickable' : 'clickable'}`}
+      className={`prevent-mobile-highlighting bubble-${number} ${isBusy ? 'unclickable' : 'clickable'}`}
       onClick={() => clickBubble(number)}></div>
   );
 };

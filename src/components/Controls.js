@@ -8,8 +8,8 @@ class Controls extends Component {
   componentDidUpdate() {
     // start new game after victory
     if (this.props.isNextTurn && this.props.message === 'VICTORY!') {
-      console.log('clearMessage after victory');
       window.setTimeout(() => {
+        console.log('clearMessage after victory');
         this.props.clearMessage();
         this.props.incrementBubbles(true);
       }, 2000);
@@ -21,14 +21,14 @@ class Controls extends Component {
     // repeat playing bubbles after incorrect choice
     if (this.props.isRepeating) {
       if (this.props.mode === 'normal') {
-        console.log('clearMessage after a mistake in normal mode');
         window.setTimeout(() => {
+          console.log('clearMessage after a mistake in normal mode');
           this.props.clearMessage();
           this.props.incrementBubbles(false, true);
         }, 2000);
       } else {
-        console.log('clearMessage after a mistake in strict mode');
         window.setTimeout(() => {
+          console.log('clearMessage after a mistake in strict mode');
           this.props.clearMessage();
           this.props.incrementBubbles(true);
         }, 2000);
@@ -46,7 +46,7 @@ class Controls extends Component {
     return (
       <div className="Controls">
         <div
-          className={`start-restart-button ${showMessage ? 'unclickable' : 'clickable'}`}
+          className={`start-restart-button prevent-mobile-highlighting ${showMessage ? 'unclickable' : 'clickable'}`}
           onClick={this.startGame}>
           {level === 0 ? 'Start' : 'Restart'}
         </div>
@@ -54,7 +54,7 @@ class Controls extends Component {
           {level === 0 ? '--' : level}
         </div>
         <div
-          className={`game-mode ${showMessage ? 'unclickable' : 'clickable'}`}
+          className={`game-mode prevent-mobile-highlighting ${showMessage ? 'unclickable' : 'clickable'}`}
           onClick={changeMode}>
           {mode}
         </div>
