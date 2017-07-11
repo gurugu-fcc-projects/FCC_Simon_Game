@@ -12,13 +12,17 @@ class Controls extends Component {
     }
     // repeat playing bubbles after incorrect choice
     if (this.props.isRepeating) {
-      window.setTimeout(() => {
-        this.props.clearFailure();
-        this.props.incrementBubbles(false, true);
-      }, 2000);
-      // window.setTimeout(() => {
-      //   this.props.incrementBubbles(false, true);
-      // }, 2000);
+      if (this.props.mode === 'normal') {
+        window.setTimeout(() => {
+          this.props.clearFailure();
+          this.props.incrementBubbles(false, true);
+        }, 2000);
+      } else {
+        window.setTimeout(() => {
+          this.props.clearFailure();
+          this.props.incrementBubbles(true);
+        }, 2000);
+      }
     }
   }
 
@@ -27,13 +31,23 @@ class Controls extends Component {
   }
 
   render() {
-    const { mode, level } = this.props;
+    const { mode, level, changeMode } = this.props;
 
     return (
       <div className="Controls">
-        <div className="start-restart-button" onClick={this.startGame}>{level === 0 ? 'Start' : 'Restart'}</div>
-        <div className={`current-step`}>{level === 0 ? '--' : level}</div>
-        <div className="game-mode">{mode}</div>
+        <div
+          className="start-restart-button"
+          onClick={this.startGame}>
+          {level === 0 ? 'Start' : 'Restart'}
+        </div>
+        <div className={`current-step`}>
+          {level === 0 ? '--' : level}
+        </div>
+        <div
+          className="game-mode"
+          onClick={changeMode}>
+          {mode}
+        </div>
       </div>
     );
   }

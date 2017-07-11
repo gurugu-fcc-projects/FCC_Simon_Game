@@ -11,6 +11,7 @@
   border-radius: 50%;
   cursor: pointer;
   background-color: yellow;
+  user-select: none;
 }
 
 .current-step,
@@ -22,12 +23,8 @@
   border-radius: 50%;
   background-color: lightgrey;
   transition: background-color 0.3s;
+  user-select: none;
 }
-
-/*.error {
-  font-size: 1.5em;
-  background-color: red;
-}*/
 
 .game-mode {
   cursor: pointer;

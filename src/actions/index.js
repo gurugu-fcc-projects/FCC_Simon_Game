@@ -3,6 +3,7 @@ import {
   CLICK_SUCCESS,
   CLICK_FAILURE,
   CLEAR_FAILURE,
+  CHANGE_MODE,
 } from './types';
 import {
   getPreviousBubbles,
@@ -67,5 +68,11 @@ export const incrementBubbles = (isGameStart = false, isRepeat = false) => (disp
 export const clearFailure = () => {
   return {
     type: CLEAR_FAILURE,
+  };
+};
+
+export const changeMode = () => {
+  return {
+    type: CHANGE_MODE,
   };
 };

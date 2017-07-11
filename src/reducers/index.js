@@ -3,6 +3,7 @@ import {
   CLICK_SUCCESS,
   CLICK_FAILURE,
   CLEAR_FAILURE,
+  CHANGE_MODE,
 } from '../actions/types';
 
 const INIT_STATE = {
@@ -14,7 +15,6 @@ const INIT_STATE = {
   isRepeating: false,
   isFailure: false,
   mode: 'normal',
-  message: '',
 };
 
 const rootReducer = (state = INIT_STATE, action) => {
@@ -33,10 +33,10 @@ const rootReducer = (state = INIT_STATE, action) => {
       if (action.payload.length < 1) {
         return {
           ...state,
+          level: state.steps.length + 1,
           stepsForTesting: action.payload,
           isBusy: true,
           isNextTurn: true,
-          message: 'BINGO!',
         };
       }
       return {
@@ -49,12 +49,23 @@ const rootReducer = (state = INIT_STATE, action) => {
         stepsForTesting: state.steps,
         isBusy: true,
         isRepeating: true,
-        message: 'WRONG!',
       };
     case CLEAR_FAILURE:
+      if (state.mode === 'strict') {
+        return {
+          ...state,
+          level: 1,
+          isRepeating: false,
+        };
+      }
       return {
         ...state,
         isRepeating: false,
+      };
+    case CHANGE_MODE:
+      return {
+        ...state,
+        mode: state.mode === 'normal' ? 'strict' : 'normal',
       };
     default:
       return state;
