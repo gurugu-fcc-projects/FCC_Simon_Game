@@ -5,14 +5,21 @@ import '../styles/Controls.css';
 import * as actions from '../actions';
 
 class Controls extends Component {
+  clearMessage = (isGameStart = false, isRepeat = false) => {
+    window.setTimeout(() => {
+      this.props.clearMessage();
+      this.props.incrementBubbles(isGameStart, isRepeat);
+    }, 2000);
+  };
+
+  startGame = () => {
+    this.props.incrementBubbles(true);
+  }
+
   componentDidUpdate() {
     // start new game after victory
     if (this.props.isNextTurn && this.props.message === 'VICTORY!') {
-      window.setTimeout(() => {
-        console.log('clearMessage after victory');
-        this.props.clearMessage();
-        this.props.incrementBubbles(true);
-      }, 2000);
+      this.clearMessage(true);
     }
     // iterate through bubbles at next step or after winning
     if (this.props.isNextTurn && this.props.message !== 'VICTORY!') {
@@ -21,23 +28,11 @@ class Controls extends Component {
     // repeat playing bubbles after incorrect choice
     if (this.props.isRepeating) {
       if (this.props.mode === 'normal') {
-        window.setTimeout(() => {
-          console.log('clearMessage after a mistake in normal mode');
-          this.props.clearMessage();
-          this.props.incrementBubbles(false, true);
-        }, 2000);
+        this.clearMessage(false, true);
       } else {
-        window.setTimeout(() => {
-          console.log('clearMessage after a mistake in strict mode');
-          this.props.clearMessage();
-          this.props.incrementBubbles(true);
-        }, 2000);
+        this.clearMessage(true);
       }
     }
-  }
-
-  startGame = () => {
-    this.props.incrementBubbles(true);
   }
 
   render() {
