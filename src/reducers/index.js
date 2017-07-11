@@ -2,6 +2,7 @@ import {
   INCREMENT_BUBBLES,
   CLICK_SUCCESS,
   CLICK_FAILURE,
+  CLEAR_FAILURE,
 } from '../actions/types';
 
 const INIT_STATE = {
@@ -13,6 +14,7 @@ const INIT_STATE = {
   isRepeating: false,
   isFailure: false,
   mode: 'normal',
+  message: '',
 };
 
 const rootReducer = (state = INIT_STATE, action) => {
@@ -34,6 +36,7 @@ const rootReducer = (state = INIT_STATE, action) => {
           stepsForTesting: action.payload,
           isBusy: true,
           isNextTurn: true,
+          message: 'BINGO!',
         };
       }
       return {
@@ -43,10 +46,15 @@ const rootReducer = (state = INIT_STATE, action) => {
     case CLICK_FAILURE:
       return {
         ...state,
-        level: '!!',
         stepsForTesting: state.steps,
         isBusy: true,
         isRepeating: true,
+        message: 'WRONG!',
+      };
+    case CLEAR_FAILURE:
+      return {
+        ...state,
+        isRepeating: false,
       };
     default:
       return state;

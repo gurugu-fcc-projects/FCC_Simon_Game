@@ -6,15 +6,19 @@ import * as actions from '../actions';
 
 class Controls extends Component {
   componentDidUpdate() {
-    // run bubble sounds on next turn
+    // iterate through bubbles for the next step
     if (this.props.isNextTurn) {
       this.props.incrementBubbles();
     }
-    // run bubbles again after incorrect choice
+    // repeat playing bubbles after incorrect choice
     if (this.props.isRepeating) {
       window.setTimeout(() => {
+        this.props.clearFailure();
         this.props.incrementBubbles(false, true);
       }, 2000);
+      // window.setTimeout(() => {
+      //   this.props.incrementBubbles(false, true);
+      // }, 2000);
     }
   }
 
@@ -23,12 +27,12 @@ class Controls extends Component {
   }
 
   render() {
-    const { mode, level, isRepeating } = this.props;
+    const { mode, level } = this.props;
 
     return (
       <div className="Controls">
         <div className="start-restart-button" onClick={this.startGame}>{level === 0 ? 'Start' : 'Restart'}</div>
-        <div className={`current-step ${isRepeating ? 'error' : ''}`}>{level === 0 ? '--' : level}</div>
+        <div className={`current-step`}>{level === 0 ? '--' : level}</div>
         <div className="game-mode">{mode}</div>
       </div>
     );

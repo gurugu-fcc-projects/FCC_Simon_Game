@@ -5,12 +5,19 @@
 
 .floating-message {
   position: absolute;
-  top: 50%;
+  top: -20%;
+  left: 0;
+  right: 0;
+  display: inline-block;
   transform: translateY(-50%);
-  /*left: 40%;*/
-  display: block;
-  text-align: center;
   font-size: 4em;
   color: #fff;
   text-shadow: 1px 1px 2px #000;
+  opacity: 0;
+  transition: top .3s ease-in, opacity .3s ease-in;
+}
+
+.floating-message.shown {
+  top: 50%;
+  opacity: 1;
 }

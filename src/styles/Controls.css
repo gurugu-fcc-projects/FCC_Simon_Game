@@ -24,10 +24,10 @@
   transition: background-color 0.3s;
 }
 
-.error {
+/*.error {
   font-size: 1.5em;
   background-color: red;
-}
+}*/
 
 .game-mode {
   cursor: pointer;
