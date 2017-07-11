@@ -3,15 +3,26 @@
 .bubble-3,
 .bubble-4 {
   position: absolute;
+  top: 45%;
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  transition: background-color 0.2s;
+  transition: background-color .2s;
+}
+
+@media only screen
+  and (min-width: 900px) {
+    .bubble-1,
+    .bubble-2,
+    .bubble-3,
+    .bubble-4 {
+      width: 110px;
+      height: 110px;
+    }
 }
 
 .bubble-1 {
-  top: 50%;
-  left: 20%;
+  left: 15%;
   background-color: hsla(0,40%,50%,1);
   /*animation: rotation-red 30s infinite linear;*/
   animation: floating-red 2s linear infinite alternate;
@@ -20,8 +31,7 @@
   background-color: hsla(0,100%,50%,1);
 }
 .bubble-2 {
-  top: 50%;
-  left: 40%;
+  left: 35%;
   background-color: hsla(240,40%,50%,1);
   /*animation: rotation-blue 30s infinite linear;*/
   animation: floating-blue 2s linear infinite alternate;
@@ -30,8 +40,7 @@
   background-color: hsla(240,100%,50%,1);
 }
 .bubble-3 {
-  top: 50%;
-  left: 60%;
+  left: 55%;
   background-color: hsla(120,40%,25%,1);
   /*animation: rotation-green 30s infinite linear;*/
   animation: floating-green 2s linear infinite alternate;
@@ -40,8 +49,7 @@
   background-color: hsla(120,100%,25%,1);
 }
 .bubble-4 {
-  top: 50%;
-  left: 80%;
+  left: 75%;
   background-color: hsla(60,40%,50%, 1);
   /*animation: rotation-yellow 30s infinite linear;*/
   animation: floating-yellow 2s linear infinite alternate;
@@ -52,34 +60,34 @@
 
 @keyframes floating-red {
   0 {
-    left: 21%;
+    left: 16%;
   }
   100% {
-    left: 19%;
+    left: 14%;
   }
 }
 @keyframes floating-blue {
   0 {
-    left: 39%;
+    left: 34%;
   }
   100% {
-    left: 41%;
+    left: 36%;
   }
 }
 @keyframes floating-green {
   0 {
-    left: 61%;
+    left: 56%;
   }
   100% {
-    left: 59%;
+    left: 54%;
   }
 }
 @keyframes floating-yellow {
   0 {
-    left: 79%;
+    left: 74%;
   }
   100% {
-    left: 81%;
+    left: 76%;
   }
 }
 
