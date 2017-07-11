@@ -10,17 +10,6 @@
   transition: background-color .2s;
 }
 
-@media only screen
-  and (min-width: 900px) {
-    .bubble-1,
-    .bubble-2,
-    .bubble-3,
-    .bubble-4 {
-      width: 110px;
-      height: 110px;
-    }
-}
-
 .bubble-1 {
   left: 15%;
   background-color: hsla(0,40%,50%,1);
@@ -58,6 +47,44 @@
   background-color: hsla(60,70%,50%,1);
 }
 
+@media only screen
+  and (min-width: 900px) {
+    .bubble-1,
+    .bubble-2,
+    .bubble-3,
+    .bubble-4 {
+      width: 110px;
+      height: 110px;
+    }
+}
+
+@media only screen
+  and (min-width: 300px)
+  and (orientation: portrait) {
+    .bubble-1,
+    .bubble-2,
+    .bubble-3,
+    .bubble-4 {
+      left: 41%;
+    }
+    .bubble-1 {
+      top: 22%;
+      animation: floating-portrait-left 2s linear infinite alternate;
+    }
+    .bubble-2 {
+      top: 40%;
+      animation: floating-portrait-right 2s linear infinite alternate;
+    }
+    .bubble-3 {
+      top: 58%;
+      animation: floating-portrait-left 2s linear infinite alternate;
+    }
+    .bubble-4 {
+      top: 76%;
+      animation: floating-portrait-right 2s linear infinite alternate;
+    }
+}
+
 @keyframes floating-red {
   0 {
     left: 16%;
@@ -88,6 +115,22 @@
   }
   100% {
     left: 76%;
+  }
+}
+@keyframes floating-portrait-left {
+  0 {
+    left: 39%;
+  }
+  100% {
+    left: 43%;
+  }
+}
+@keyframes floating-portrait-right {
+  0 {
+    left: 43%;
+  }
+  100% {
+    left: 39%;
   }
 }
 
