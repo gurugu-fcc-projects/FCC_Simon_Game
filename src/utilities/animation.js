@@ -19,6 +19,8 @@
  Bubble CANVAS animation
 ===================================*/
 
+let drawingBubbles;
+
 export const setCanvas = () => {
   const canvas = document.querySelector('canvas');
 
@@ -112,6 +114,19 @@ export const setBubbles = (number) => {
 export const drawBubbles = (bubbles) => {
   // draw all bubbles
   bubbles.forEach(bubble => bubble.draw());
+};
+
+// main function to run all animation
+export const drawBgAnimation = (bubblesNumber = 200) => {
+  const bubbles = setBubbles(bubblesNumber);
+
+  window.clearInterval(drawingBubbles);
+  setCanvas();
+
+  drawingBubbles = window.setInterval(() => {
+    clearDisplay();
+    drawBubbles(bubbles);
+  }, 60);
 };
 
 /*==================================

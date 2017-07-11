@@ -5,27 +5,17 @@ import Controls from './Controls';
 import Bubble from './Bubble';
 import '../styles/App.css';
 import * as actions from '../actions';
-import {
-  setCanvas,
-  clearDisplay,
-  setBubbles,
-  drawBubbles,
-} from '../utilities/animation';
+import { drawBgAnimation } from '../utilities/animation';
 
 class App extends Component {
   componentDidMount() {
-    const bubbles = setBubbles(200);
-
-    setCanvas();
-
-    setInterval(() => {
-      clearDisplay();
-      drawBubbles(bubbles);
-    }, 60);
+    drawBgAnimation(200);
   }
 
   render() {
     const { showMessage, message } = this.props;
+
+    window.onresize = () => drawBgAnimation(200);
 
     return (
       <div className="App">
