@@ -13,7 +13,7 @@ As usual this was also an opportunity to try something new - ES6 Classes this ti
 
 ## Links
 
-- [ ] this project at codepen: [https://codepen.io/GuRuGu/pen/xrmbdv](https://codepen.io/GuRuGu/pen/xrmbdv)
+- [ ] this project at codepen: [https://codepen.io/GuRuGu/full/xrmbdv/](https://codepen.io/GuRuGu/full/xrmbdv/)
 - [ ] this project at gh-pages: [https://gurugumawaru.github.io/FCC_Simon_Game/](https://gurugumawaru.github.io/FCC_Simon_Game/)
 - [ ] freecodecamp challenge: [https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game](https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game)
 
